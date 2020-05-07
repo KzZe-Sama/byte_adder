@@ -13,24 +13,32 @@ print("Version:1")
 print("\n")
 while(flag==False):
 	#Exception Handling
+
 	try:
 		#asking input user two values a and b and passing the value to the function
 			print("--------Input two Decimal Values--------")
 			print("Note: You can ony enter numbers starting from 0 to 255")
 			firstNumVar=int(input("Please Enter the First Number\n"))
 			firstNumVar=functions.StepTwoFunction(firstNumVar)
-			secondNumVar=int(input("Please Enter the Second Number\n"))
-			secondNumVar=functions.StepTwoFunction(secondNumVar)
-			functions.checkTotal(firstNumVar,secondNumVar)
-			# # Asking if user wants to continue or not
-			ask=input("Do You want to Run the Program Again? (Y/N)\n")
-			ask=ask.upper()
-			if(ask=="Y"):
-				flag=False
-			else:
-				print("Thank you for using this Python Program, Have a nice day!")
-				print("\n")
-				break
 	except:
 		print("Data Type ERROR!\nThe Program is meant to accept integer values only")
 		print("\n")
+		continue
+	while(True):
+		try:
+			secondNumVar=int(input("Please Enter the Second Number\n"))
+			secondNumVar=functions.StepTwoFunction(secondNumVar)
+			break
+		except:
+			print("Data Type ERROR!\nThe Program is meant to accept integer values only")
+			print("\n")
+	functions.checkTotal(firstNumVar,secondNumVar)
+	# # Asking if user wants to continue or not
+	ask=input("Do You want to Run the Program Again? (Y/N)\n")
+	ask=ask.upper()
+	if(ask=="Y"):
+		flag=False
+	else:
+		print("Thank you for using this Python Program, Have a nice day!")
+		print("\n")
+		break
